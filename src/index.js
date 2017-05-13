@@ -26,6 +26,7 @@ import transformES2015StickyRegex from "babel-plugin-transform-es2015-sticky-reg
 import transformES2015UnicodeRegex from "babel-plugin-transform-es2015-unicode-regex"
 import transformES2015TemplateLiterals from "babel-plugin-transform-es2015-template-literals"
 import transformES2015TypeofSymbol from "babel-plugin-transform-es2015-typeof-symbol"
+import transformDecoratorsLegacy from "babel-plugin-transform-decorators-legacy"
 
 export default {
     presets: [
@@ -58,6 +59,7 @@ export default {
         transformES2015UnicodeRegex,
         transformES2015TemplateLiterals,
         transformES2015TypeofSymbol,
+        transformDecoratorsLegacy,
         [
             transformRegenerator,
             {
