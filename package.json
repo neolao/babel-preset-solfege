@@ -1,0 +1,36 @@
+{
+  "name": "babel-preset-solfege",
+  "version": "1.0.0",
+  "description": "Babel preset to build SolfegeJS",
+  "author": "neolao <contact@neolao.com>",
+  "repository": "https://github.com/neolao/babel-preset-solfege",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "keywords": [
+    "babel-preset",
+    "solfege"
+  ],
+  "files": [
+     "lib"
+  ],
+  "dependencies": {
+    "babel-plugin-add-module-exports": "0.2.*",
+    "babel-plugin-closure-elimination": "1.1.*",
+    "babel-plugin-syntax-async-generators": "^6.5",
+    "babel-plugin-syntax-flow": "^6.5",
+    "babel-plugin-transform-async-to-generator": "^6.24.1",
+    "babel-plugin-transform-async-to-module-method": "^6.5",
+    "babel-plugin-transform-flow-strip-types": "^6.5",
+    "babel-plugin-transform-regenerator": "^6.6",
+    "babel-preset-es2015": "^6.5",
+    "babel-preset-flow": "^6.23",
+    "babel-preset-stage-0": "^6.5"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.7"
+  },
+  "scripts": {
+    "prepare": "npm run build",
+    "build": "babel --out-dir lib src --copy-files"
+  }
+}
