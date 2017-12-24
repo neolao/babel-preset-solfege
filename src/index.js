@@ -1,13 +1,11 @@
-import presetStage0 from "babel-preset-stage-0"
 import syntaxFlow from "babel-plugin-syntax-flow"
 import syntaxAsyncFunctions from "babel-plugin-syntax-async-functions"
 import syntaxAsyncGenerators from "babel-plugin-syntax-async-generators"
 import closureElimination from "babel-plugin-closure-elimination"
 import addModuleExports from "babel-plugin-add-module-exports"
 import transformFlowStripTypes from "babel-plugin-transform-flow-strip-types"
-import transformAsyncToGenerator from "babel-plugin-transform-async-to-generator"
-import transformAsyncToModuleMethod from "babel-plugin-transform-async-to-module-method"
-import transformRegenerator from "babel-plugin-transform-regenerator"
+
+// ES2015
 import checkES2015Constants from "babel-plugin-check-es2015-constants"
 import transformES2015ArrowFunctions from "babel-plugin-transform-es2015-arrow-functions"
 import transformES2015BlockScopedFunctions from "babel-plugin-transform-es2015-block-scoped-functions"
@@ -28,19 +26,47 @@ import transformES2015TemplateLiterals from "babel-plugin-transform-es2015-templ
 import transformES2015TypeofSymbol from "babel-plugin-transform-es2015-typeof-symbol"
 import transformDecoratorsLegacy from "babel-plugin-transform-decorators-legacy"
 
+// Stage 0
+import transformDoExpressions from "babel-plugin-transform-do-expressions"
+import transformFunctionBind from "babel-plugin-transform-function-bind"
+
+// Stage 1
+import transformClassConstructorCall from "babel-plugin-transform-class-constructor-call"
+import transformExportExtensions from "babel-plugin-transform-export-extensions"
+
+// Stage 2
+import transformClassProperties from "babel-plugin-transform-class-properties"
+import transformDecorators from "babel-plugin-transform-decorators"
+import syntaxDynamicImport from "babel-plugin-syntax-dynamic-import"
+
+// Stage 3
+import syntaxTrailingFunctionCommas from "babel-plugin-syntax-trailing-function-commas"
+import transformExponentiationOperator from "babel-plugin-transform-exponentiation-operator"
+import transformObjectRestSpread from "babel-plugin-transform-object-rest-spread"
+
 export default {
-    presets: [
-        presetStage0
-    ],
+    presets: [],
     plugins: [
-        syntaxFlow,
-        syntaxAsyncFunctions,
-        syntaxAsyncGenerators,
-        closureElimination,
-        addModuleExports,
-        transformFlowStripTypes,
-        transformAsyncToGenerator,
-        transformAsyncToModuleMethod,
+        // Stage 0
+        transformDoExpressions,
+        transformFunctionBind,
+
+        // Stage 1
+        transformClassConstructorCall,
+        transformExportExtensions,
+
+        // Stage 2
+        syntaxDynamicImport,
+        transformClassProperties,
+        //transformDecorators,
+
+        // Stage 3
+        syntaxTrailingFunctionCommas, // in ES2017 (remove as a breaking change)
+        transformExponentiationOperator,  // in ES2016 (remove as a breaking change)
+        transformObjectRestSpread,
+
+
+        // ES2015
         checkES2015Constants,
         transformES2015ArrowFunctions,
         transformES2015BlockScopedFunctions,
@@ -60,13 +86,13 @@ export default {
         transformES2015TemplateLiterals,
         transformES2015TypeofSymbol,
         transformDecoratorsLegacy,
-        [
-            transformRegenerator,
-            {
-                "asyncGenerators": false,
-                "generators": false,
-                "async": false
-            }
-        ]
+
+        // Custom
+        syntaxFlow,
+        syntaxAsyncFunctions,
+        syntaxAsyncGenerators,
+        closureElimination,
+        addModuleExports,
+        transformFlowStripTypes
     ]
 };
