@@ -28,7 +28,18 @@ import transformObjectRestSpread from "babel-plugin-transform-object-rest-spread
 
 export default {
     presets: [
-        presetEnv
+        [
+            presetEnv,
+            {
+                "targets": {
+                    "node": "9"
+                },
+                "useBuiltIns": true,
+                "exclude": [
+                    "transform-regenerator"
+                ]
+            }
+        ]
     ],
     plugins: [
         // Stage 0
