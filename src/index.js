@@ -4,6 +4,7 @@ import syntaxAsyncGenerators from "babel-plugin-syntax-async-generators"
 import closureElimination from "babel-plugin-closure-elimination"
 import addModuleExports from "babel-plugin-add-module-exports"
 import transformFlowStripTypes from "babel-plugin-transform-flow-strip-types"
+import transformDecoratorsLegacy from "babel-plugin-transform-decorators-legacy"
 
 // Preset Env
 import presetEnv from "babel-preset-env"
@@ -66,6 +67,7 @@ export default {
         syntaxAsyncGenerators,
         closureElimination,
         addModuleExports,
-        transformFlowStripTypes
+        transformFlowStripTypes,
+        transformDecoratorsLegacy
     ]
 };
